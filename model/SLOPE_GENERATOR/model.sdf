@@ -1,0 +1,188 @@
+<sdf version='1.6'>
+  <model name='SLOPE_GENERATOR'>
+    <joint name="fixed to ground" type="fixed">
+      <parent>world</parent>
+      <child>BASE_LINK</child>
+    </joint>
+    <link name='BASE_LINK'>
+      <pose frame=''>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <mass>1000</mass>
+        <inertia>
+          <ixx>10000</ixx>
+          <ixy>-3.574e-23</ixy>
+          <ixz>7.1668e-38</ixz>
+          <iyy>10000</iyy>
+          <iyz>-1.6832e-22</iyz>
+          <izz>10000</izz>
+        </inertia>
+      </inertial>
+      <collision name='BASE_LINK_collision'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://SLOPE_GENERATOR/meshes/BASE_LINK.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='BASE_LINK_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://SLOPE_GENERATOR/meshes/BASE_LINK.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <link name='MIDDLE_LINK'>
+      <pose frame=''>0 -1.505 0 0 -0 0</pose>
+      <inertial>
+        <pose frame=''>0 -0 -0 0 -0 0</pose>
+        <mass>1000</mass>
+        <inertia>
+          <ixx>10000</ixx>
+          <ixy>2.7259e-15</ixy>
+          <ixz>-4.8154e-16</ixz>
+          <iyy>10000</iyy>
+          <iyz>-2.2029e-17</iyz>
+          <izz>10000</izz>
+        </inertia>
+      </inertial>
+      <collision name='MIDDLE_LINK_collision'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://SLOPE_GENERATOR/meshes/MIDDLE_LINK.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='MIDDLE_LINK_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://SLOPE_GENERATOR/meshes/MIDDLE_LINK.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='MIDDLE_JOINT' type='revolute'>
+      <child>MIDDLE_LINK</child>
+      <parent>BASE_LINK</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='END_LINK'>
+      <pose frame=''>3 -1.505 0 0 0 0</pose>
+      <inertial>
+        <pose frame=''>1.5009 -0 0 0 -0 0</pose>
+        <mass>1000</mass>
+        <inertia>
+          <ixx>5000</ixx>
+          <ixy>1.1309e-14</ixy>
+          <ixz>9.749e-19</ixz>
+          <iyy>5000</iyy>
+          <iyz>2.3223e-18</iyz>
+          <izz>5000</izz>
+        </inertia>
+      </inertial>
+      <collision name='END_LINK_collision'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://SLOPE_GENERATOR/meshes/END_LINK.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='END_LINK_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://SLOPE_GENERATOR/meshes/END_LINK.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='END_JOINT' type='revolute'>
+      <child>END_LINK</child>
+      <parent>MIDDLE_LINK</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='INIT_LINK'>
+      <pose frame=''>-3 -1.505 0 0 -0 0</pose>
+      <inertial>
+        <pose frame=''>-1.5009 -0 0 0 -0 0</pose>
+        <mass>1000</mass>
+        <inertia>
+          <ixx>5000</ixx>
+          <ixy>-6.6608e-15</ixy>
+          <ixz>6.0956e-18</ixz>
+          <iyy>5000</iyy>
+          <iyz>1.2777e-17</iyz>
+          <izz>5000</izz>
+        </inertia>
+      </inertial>
+      <collision name='INIT_LINK_collision'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://SLOPE_GENERATOR/meshes/INIT_LINK.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='INIT_LINK_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://SLOPE_GENERATOR/meshes/INIT_LINK.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='INIT_JOINT' type='revolute'>
+      <child>INIT_LINK</child>
+      <parent>MIDDLE_LINK</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+  </model>
+</sdf>

@@ -1,0 +1,202 @@
+<robot
+  name="SLOPE_GENERATOR">
+  <link
+    name="BASE_LINK">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.019117" />
+      <inertia
+        ixx="3.0675E-06"
+        ixy="-3.574E-23"
+        ixz="7.1668E-38"
+        iyy="5.8164E-06"
+        iyz="-1.6832E-22"
+        izz="3.0675E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://SLOPE_GENERATOR/meshes/BASE_LINK.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://SLOPE_GENERATOR/meshes/BASE_LINK.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="MIDDLE_LINK">
+    <inertial>
+      <origin
+        xyz="1.4919E-16 -1.3078E-08 -9.1073E-17"
+        rpy="0 0 0" />
+      <mass
+        value="90.051" />
+      <inertia
+        ixx="67.528"
+        ixy="2.7259E-15"
+        ixz="-4.8154E-16"
+        iyy="270.46"
+        iyz="-2.2029E-17"
+        izz="337.99" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://SLOPE_GENERATOR/meshes/MIDDLE_LINK.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://SLOPE_GENERATOR/meshes/MIDDLE_LINK.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="MIDDLE_JOINT"
+    type="continuous">
+    <origin
+      xyz="0 -1.505 0"
+      rpy="0 0 0" />
+    <parent
+      link="BASE_LINK" />
+    <child
+      link="MIDDLE_LINK" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="INIT_LINK">
+    <inertial>
+      <origin
+        xyz="-1.5009 -2.2204E-16 8.6736E-19"
+        rpy="0 0 0" />
+      <mass
+        value="44.974" />
+      <inertia
+        ixx="33.736"
+        ixy="-6.6608E-15"
+        ixz="6.0956E-18"
+        iyy="33.693"
+        iyz="1.2777E-17"
+        izz="67.429" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://SLOPE_GENERATOR/meshes/INIT_LINK.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://SLOPE_GENERATOR/meshes/INIT_LINK.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="INIT_JOINT"
+    type="continuous">
+    <origin
+      xyz="-3 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="MIDDLE_LINK" />
+    <child
+      link="INIT_LINK" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="END_LINK">
+    <inertial>
+      <origin
+        xyz="1.5009 -4.4409E-16 8.6736E-19"
+        rpy="0 0 0" />
+      <mass
+        value="44.974" />
+      <inertia
+        ixx="33.736"
+        ixy="1.1309E-14"
+        ixz="9.749E-19"
+        iyy="33.693"
+        iyz="2.3223E-18"
+        izz="67.429" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://SLOPE_GENERATOR/meshes/END_LINK.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://SLOPE_GENERATOR/meshes/END_LINK.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="END_JOINT"
+    type="continuous">
+    <origin
+      xyz="3 0 0"
+      rpy="0 3.7184E-35 0" />
+    <parent
+      link="MIDDLE_LINK" />
+    <child
+      link="END_LINK" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+</robot>
